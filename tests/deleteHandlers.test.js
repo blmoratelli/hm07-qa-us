@@ -4,7 +4,9 @@ const config = require('../config');
 test('Status code should be 200', async () => {
 	let actualStatusCode;
 	try {
-		const response = await fetch(`${config.API_URL}/api/v1/kits/10`);
+		const response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
+		method: 'DELETE',
+		});
 		actualStatusCode = response.status;
 	} catch (error) {
 		console.error(error);
@@ -16,7 +18,7 @@ test('Status code should be 200', async () => {
 test('Body should contain "ok" : true', async () => {
 	let actualResponseBody;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/kits/10`, {
+		const response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
 			method: 'DELETE',
 		});
 		actualResponseBody = await response.json();
